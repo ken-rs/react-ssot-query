@@ -1,0 +1,7 @@
+tests/
+.github/
+.vitepress/
+vite.config.ts
+tsconfig.json
+vitest.config.ts
+coverage/

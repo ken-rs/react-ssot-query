@@ -1,0 +1,45 @@
+{
+  "name": "react-ssot-query",
+  "version": "1.0.0",
+  "description": "React hooks for managing hierarchical query parameters as Single Source of Truth (SSOT)",
+  "main": "dist/react-ssot-query.umd.js",
+  "module": "dist/react-ssot-query.es.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "vitest run --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ken-rs/react-ssot-query.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ken-rs/react-ssot-query/issues"
+  },
+  "homepage": "https://github.com/ken-rs/react-ssot-query#readme",
+  "keywords": [
+    "react",
+    "hooks",
+    "query",
+    "url",
+    "ssot",
+    "state"
+  ],
+  "author": "ken-rs",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "react-router-dom": "^6.0.0"
+  },
+  "devDependencies": {
+    "vite": "^6.3.5",
+    "vitest": "^3.1.4",
+    "typescript": "^5.4.5",
+    "@types/react": "^18.2.47",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/jest-dom": "^6.0.0",
+    "@types/jest": "^29.5.11",
+    "react-dom": "^18.2.0"
+  }
+}
