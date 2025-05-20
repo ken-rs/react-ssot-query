@@ -1,0 +1,24 @@
+# dependencies
+/node_modules
+
+# production
+/dist
+/.vitepress/dist
+
+# testing
+/coverage
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# editor
+.vscode
+.idea
+.DS_Store
+
+# env / temp
+.env*
+*.local
+*.cache
