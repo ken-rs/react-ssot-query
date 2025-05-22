@@ -91,7 +91,7 @@ npm run test      # Run tests (Vitest)
 npm run build     # Build (Vite)
 ```
 
-GitHub Actions CI runs tests and coverage on Node.js 16 / 18 / 20.
+GitHub Actions CI runs tests and coverage on Node.js 18 / 20.
 
 ---
 
