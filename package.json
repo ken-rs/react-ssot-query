@@ -1,6 +1,6 @@
 {
   "name": "react-ssot-query",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React hooks for managing hierarchical query parameters as Single Source of Truth (SSOT)",
   "main": "dist/react-ssot-query.umd.js",
   "module": "dist/react-ssot-query.es.js",
@@ -43,7 +43,7 @@
   "license": "MIT",
   "peerDependencies": {
     "react": ">=17.0.0",
-    "react-router-dom": "^6.0.0"
+    "react-router-dom": ">=6.0.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.0.0",
