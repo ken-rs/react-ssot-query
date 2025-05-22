@@ -1,10 +1,10 @@
-name: Test & Coverage
+name: Test and Coverage
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   test:
@@ -23,13 +23,13 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Run tests with coverage
         run: npx vitest run --coverage
 
-      - name: coverage-${{ github.run_attempt }}
+      - name: Upload coverage report
         uses: actions/upload-artifact@v4.6.2
         with:
-          name: coverage-report
+          name: coverage-${{ matrix.node-version }}-${{ github.run_attempt }}
           path: coverage

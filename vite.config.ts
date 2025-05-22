@@ -25,6 +25,7 @@ export default defineConfig({
       provider: 'v8',
       reporter: ['text', 'lcov']
     },
-    exclude: [...configDefaults.exclude]
+    exclude: [...configDefaults.exclude],
+    setupFiles: ['./tests/setup.ts']
   }
 });
