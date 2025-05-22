@@ -16,7 +16,7 @@ React hooks for managing hierarchical query parameters as a Single Source of Tru
 - `useParamConfig` lets you manage a full namespace (`paramKey`) of state entries as a unified object.
 - `useParamChangeWatcher` detects changes in the config and safely triggers side effects when the structure is updated.
 
-The format `paramKey=subKey~value,...` supported by this library is flexible enough to handle view modes, filters, tab states, form preservation, and more.  
+The format `paramKey=subKey~value,...` supported by this library is flexible enough to handle view modes, filters, tab states, form preservation, and more.
 It also enhances shareability, browser history support, and integration with external systems—making your application easier to debug, share, and scale.
 
 ---
@@ -33,14 +33,20 @@ yarn add react-ssot-query
 
 ## 🔧 Usage
 
+These examples illustrate how to:
+
+- Toggle visual themes using URL state
+- Update and observe multiple settings (e.g., sort, layout)
+- React to URL-driven triggers such as `refresh=true`
+
 ### `useSubParamState`
 
 ```tsx
-const [mode, setMode] = useSubParamState('viewer1', 'mode');
+const [theme, setTheme] = useSubParamState('settings', 'theme');
 
 return (
-  <button onClick={() => setMode(mode === 'edit' ? 'view' : 'edit')}>
-    Mode: {mode}
+  <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
+    Theme: {theme}
   </button>
 );
 ```
@@ -48,20 +54,24 @@ return (
 ### `useParamConfig`
 
 ```tsx
-const [config, setConfig] = useParamConfig('viewer1');
+const [config, setConfig] = useParamConfig('settings');
 
 useEffect(() => {
-  if (config.id) flyToById(config.id);
-}, [config.id]);
+  if (config.layout === 'grid') {
+    console.log('Switched to grid layout');
+  }
+}, [config.layout]);
 
-setConfig({ city: 'Sapporo', rotate: 'off' });
+setConfig({ sort: 'name', layout: 'grid' });
 ```
 
 ### `useParamChangeWatcher`
 
 ```tsx
-useParamChangeWatcher('viewer1', (config) => {
-  if (config.rotate === 'on') startCameraRotation();
+useParamChangeWatcher('settings', (config) => {
+  if (config.refresh === 'true') {
+    console.log('Triggered refresh based on URL state');
+  }
 });
 ```
 
@@ -91,7 +101,7 @@ npm run test      # Run tests (Vitest)
 npm run build     # Build (Vite)
 ```
 
-GitHub Actions CI runs tests and coverage on Node.js 16 / 18 / 20.
+GitHub Actions CI runs tests and coverage on Node.js 18 / 20.
 
 ---
 
@@ -103,7 +113,7 @@ MIT © 2024 [ken-rs](https://github.com/ken-rs)
 
 ## 🙌 Contributing
 
-Contributions are welcome!  
+Contributions are welcome!
 Feel free to submit issues or pull requests for improvements, naming suggestions, utility extensions, or better typings.
 
 Please follow the existing code style (TypeScript, ESLint, Prettier) and include test coverage for new features.

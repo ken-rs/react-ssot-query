@@ -1,14 +1,27 @@
 {
   "name": "react-ssot-query",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React hooks for managing hierarchical query parameters as Single Source of Truth (SSOT)",
   "main": "dist/react-ssot-query.umd.js",
   "module": "dist/react-ssot-query.es.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/react-ssot-query.es.js",
+      "require": "./dist/react-ssot-query.umd.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "test": "vitest run --coverage"
+    "test": "vitest run --coverage",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
