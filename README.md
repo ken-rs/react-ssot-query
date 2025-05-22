@@ -33,14 +33,20 @@ yarn add react-ssot-query
 
 ## 🔧 Usage
 
+These examples illustrate how to:
+
+- Toggle visual themes using URL state
+- Update and observe multiple settings (e.g., sort, layout)
+- React to URL-driven triggers such as `refresh=true`
+
 ### `useSubParamState`
 
 ```tsx
-const [mode, setMode] = useSubParamState('viewer1', 'mode');
+const [theme, setTheme] = useSubParamState('settings', 'theme');
 
 return (
-  <button onClick={() => setMode(mode === 'edit' ? 'view' : 'edit')}>
-    Mode: {mode}
+  <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
+    Theme: {theme}
   </button>
 );
 ```
@@ -48,20 +54,24 @@ return (
 ### `useParamConfig`
 
 ```tsx
-const [config, setConfig] = useParamConfig('viewer1');
+const [config, setConfig] = useParamConfig('settings');
 
 useEffect(() => {
-  if (config.id) flyToById(config.id);
-}, [config.id]);
+  if (config.layout === 'grid') {
+    console.log('Switched to grid layout');
+  }
+}, [config.layout]);
 
-setConfig({ city: 'Sapporo', rotate: 'off' });
+setConfig({ sort: 'name', layout: 'grid' });
 ```
 
 ### `useParamChangeWatcher`
 
 ```tsx
-useParamChangeWatcher('viewer1', (config) => {
-  if (config.rotate === 'on') startCameraRotation();
+useParamChangeWatcher('settings', (config) => {
+  if (config.refresh === 'true') {
+    console.log('Triggered refresh based on URL state');
+  }
 });
 ```
 
